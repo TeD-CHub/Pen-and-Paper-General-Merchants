@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Thoughtful school supplies for bright ideas. Shop notebooks, pens, art supplies and more at Pen and Paper Provisions."
+    />
+    <title>Pen and Paper Provisions — Make room for ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body id="top">
+    <div class="announcement">
+      <span>Good things for curious minds.</span>
+      <span class="announcement-note">Free shipping on orders over $50 <span aria-hidden="true">✳</span></span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Pen and Paper Provisions home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 42 42" fill="none">
+            <path d="M12 30.5 29.8 12.7l4 4L16 34.5l-6 2 2-6Z" fill="currentColor" />
+            <path d="m27.5 15 4 4M10 8.5c5.5-2 10.3.8 11 5.2-5.3 2-10.2-.5-11-5.2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M10 8.5c.3 4.7 2.8 7.3 7 8.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand-name">pen &amp; paper <span>PROVISIONS</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span><span class="visually-hidden">Open menu</span>
+      </button>
+
+      <nav class="main-nav" id="primary-navigation" aria-label="Main navigation">
+        <a href="#shop">Shop all</a>
+        <a href="#categories">Categories</a>
+        <a href="#our-story">Our story</a>
+      </nav>
+
+      <a class="cart-button" href="#shop" aria-label="Shopping bag, 0 items">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5.5 8h13l1 12h-15l1-12Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+          <path d="M9 9V6a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </svg>
+        <span>Bag</span><span class="cart-count" aria-live="polite">0</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-sparkle">✳</span> A little joy for the school day</p>
+          <h1>Make room<br />for <em>big ideas.</em></h1>
+          <p class="hero-description">
+            The notebooks, pens, and clever little things that make learning feel like an adventure.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#shop">Shop the collection <span aria-hidden="true">↗</span></a>
+            <span class="hand-note">Good tools. Great ideas.</span>
+          </div>
+          <div class="hero-stamp" aria-label="Thoughtfully picked, joyfully packed">
+            <span>THOUGHTFULLY<br />PICKED</span>
+            <span class="stamp-star" aria-hidden="true">✳</span>
+            <span>JOYFULLY<br />PACKED</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="A collection of books and stationery">
+          <div class="hero-photo">
+            <img
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
+              alt="A notebook and pen ready for a new idea"
+            />
+          </div>
+          <div class="floating-note note-top">ideas<br />live here <span aria-hidden="true">↘</span></div>
+          <div class="floating-note note-bottom"><span aria-hidden="true">✦</span> Your next<br />great chapter</div>
+          <span class="hero-orbit orbit-one" aria-hidden="true">✳</span>
+          <span class="hero-orbit orbit-two" aria-hidden="true">✦</span>
+        </div>
+        <a class="scroll-cue" href="#shop"><span></span> SCROLL TO EXPLORE</a>
+      </section>
+
+      <section class="category-strip" id="categories" aria-label="Shop by category">
+        <div class="section-kicker"><span>THE GOOD STUFF</span><span class="kicker-line"></span></div>
+        <div class="category-links">
+          <a href="#shop" data-category-link="writing">Writing things <span>↗</span></a>
+          <a href="#shop" data-category-link="paper">Paper goods <span>↗</span></a>
+          <a href="#shop" data-category-link="art">Art class <span>↗</span></a>
+          <a href="#shop" data-category-link="bags">Bags &amp; beyond <span>↗</span></a>
+        </div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="shop-heading">
+          <div>
+            <p class="eyebrow">YOUR DESK, BUT HAPPIER</p>
+            <h2>Little things, <em>big potential.</em></h2>
+          </div>
+          <a class="text-link" href="#shop">See everything <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter products">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All the good stuff</button>
+          <button class="filter-chip" type="button" data-filter="paper" aria-pressed="false">Paper goods</button>
+          <button class="filter-chip" type="button" data-filter="writing" aria-pressed="false">Writing</button>
+          <button class="filter-chip" type="button" data-filter="art" aria-pressed="false">Art supplies</button>
+          <button class="filter-chip" type="button" data-filter="bags" aria-pressed="false">Bags</button>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-category="paper">
+            <a class="product-image image-lilac" href="#shop" aria-label="Explore the Daydream Notebook">
+              <span class="product-badge">BESTSELLER</span>
+              <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80" alt="A stack of colorful notebooks" loading="lazy" />
+              <span class="quick-view">A little look <span aria-hidden="true">↗</span></span>
+            </a>
+            <div class="product-info">
+              <div><h3>Daydream Notebook</h3><p>Ruled pages · 3 colors</p></div>
+              <strong>$12</strong>
+            </div>
+            <button class="add-button" type="button" data-name="Daydream Notebook" aria-label="Add Daydream Notebook to bag">Add to bag <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="product-card" data-category="writing">
+            <a class="product-image image-peach" href="#shop" aria-label="Explore the Everyday Gel Pens">
+              <span class="product-badge badge-coral">SET OF 5</span>
+              <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80" alt="A colorful set of pens and pencils" loading="lazy" />
+              <span class="quick-view">A little look <span aria-hidden="true">↗</span></span>
+            </a>
+            <div class="product-info">
+              <div><h3>Everyday Gel Pens</h3><p>Fine point · Smooth ink</p></div>
+              <strong>$9</strong>
+            </div>
+            <button class="add-button" type="button" data-name="Everyday Gel Pens" aria-label="Add Everyday Gel Pens to bag">Add to bag <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="product-card" data-category="art">
+            <a class="product-image image-yellow" href="#shop" aria-label="Explore the Color Outside Pencils">
+              <span class="product-badge badge-violet">NEW</span>
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Bright art supplies ready for a creative afternoon" loading="lazy" />
+              <span class="quick-view">A little look <span aria-hidden="true">↗</span></span>
+            </a>
+            <div class="product-info">
+              <div><h3>Color Outside Pencils</h3><p>12 brilliant colors</p></div>
+              <strong>$14</strong>
+            </div>
+            <button class="add-button" type="button" data-name="Color Outside Pencils" aria-label="Add Color Outside Pencils to bag">Add to bag <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="product-card" data-category="bags">
+            <a class="product-image image-green" href="#shop" aria-label="Explore the Little Explorer Tote">
+              <span class="product-badge badge-green">READY TO GO</span>
+              <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="A neatly packed bag for carrying school essentials" loading="lazy" />
+              <span class="quick-view">A little look <span aria-hidden="true">↗</span></span>
+            </a>
+            <div class="product-info">
+              <div><h3>Little Explorer Tote</h3><p>Room for all the things</p></div>
+              <strong>$28</strong>
+            </div>
+            <button class="add-button" type="button" data-name="Little Explorer Tote" aria-label="Add Little Explorer Tote to bag">Add to bag <span aria-hidden="true">+</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-section" id="our-story">
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85" alt="A cozy shelf of books and learning supplies" loading="lazy" />
+          <span class="story-image-caption">A good day starts with a fresh page.</span>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow"><span class="eyebrow-sparkle">✳</span> A note from us</p>
+          <h2>For the first<br />page and the<br /><em>what-if.</em></h2>
+          <p>
+            We believe the right pencil can spark a story, a fresh notebook can hold a thousand plans, and the little things can make a school day feel special.
+          </p>
+          <a class="button button-outline" href="#categories">A little about us <span aria-hidden="true">↗</span></a>
+          <span class="story-doodle" aria-hidden="true">✳</span>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <div class="newsletter-star" aria-hidden="true">✳</div>
+        <div>
+          <p class="eyebrow">A GOOD NOTE IN YOUR INBOX</p>
+          <h2>Stay curious. <em>Stay in the know.</em></h2>
+          <p>New finds, little surprises, and 10% off your first order.</p>
+        </div>
+        <form class="newsletter-form">
+          <label class="visually-hidden" for="email-address">Your email address</label>
+          <input id="email-address" name="email" type="email" placeholder="Your email address" required />
+          <button type="submit" aria-label="Subscribe to the newsletter">Count me in <span aria-hidden="true">↗</span></button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#" aria-label="Pen and Paper Provisions home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 42 42" fill="none">
+            <path d="M12 30.5 29.8 12.7l4 4L16 34.5l-6 2 2-6Z" fill="currentColor" />
+            <path d="m27.5 15 4 4M10 8.5c5.5-2 10.3.8 11 5.2-5.3 2-10.2-.5-11-5.2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M10 8.5c.3 4.7 2.8 7.3 7 8.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand-name">pen &amp; paper <span>PROVISIONS</span></span>
+      </a>
+      <p>Thoughtful supplies for every bright idea.</p>
+      <div class="footer-bottom">
+        <span>© 2026 Pen and Paper Provisions</span>
+        <span>Made for curious minds <span aria-hidden="true">✳</span></span>
+        <a href="#top" class="back-to-top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
