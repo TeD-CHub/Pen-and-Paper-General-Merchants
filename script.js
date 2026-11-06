@@ -1,28 +1,7 @@
-const cartCount = document.querySelector(".cart-count");
-const cartButton = document.querySelector(".cart-button");
-const toast = document.querySelector(".toast");
 const productCards = [...document.querySelectorAll(".product-card")];
 const filterButtons = [...document.querySelectorAll(".filter-chip")];
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".main-nav");
-let itemCount = 0;
-let toastTimeout;
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  window.clearTimeout(toastTimeout);
-  toastTimeout = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
-}
-
-document.querySelectorAll(".add-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    itemCount += 1;
-    cartCount.textContent = String(itemCount);
-    cartButton.setAttribute("aria-label", `Shopping bag, ${itemCount} ${itemCount === 1 ? "item" : "items"}`);
-    showToast(`${button.dataset.name} added to your bag`);
-  });
-});
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
