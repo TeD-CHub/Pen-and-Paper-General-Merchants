@@ -28,21 +28,23 @@ document.querySelectorAll("[data-category-link]").forEach((link) => {
 menuToggle.addEventListener("click", () => {
   const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
   menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   navigation.classList.toggle("is-open", isOpen);
 });
 
 navigation.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
     navigation.classList.remove("is-open");
   });
 });
 
-document.querySelector(".newsletter-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const email = new FormData(form).get("email");
-  const message = form.querySelector(".form-message");
-  message.textContent = `You're on the list! Watch your inbox at ${email}.`;
-  form.reset();
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    navigation.classList.remove("is-open");
+    menuToggle.focus();
+  }
 });
