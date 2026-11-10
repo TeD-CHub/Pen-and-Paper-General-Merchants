@@ -9,16 +9,22 @@ export const schools: School[] = [
   { id: "sample-school-6", name: "Sample School 6", location: "Kisumu", isSample: true },
 ];
 
-export const schoolLists: SchoolList[] = schools.map((school, index) => ({
-  id: `sample-list-${index + 1}`,
-  schoolId: school.id,
-  name: `${school.name} - Grade ${index + 1} sample list`,
-  grade: `Grade ${index + 1}`,
-  academicYear: "2026 (sample)",
-  items: [
-    { productId: `cbe-${index + 1}-english`, quantity: 1 },
-    { productId: `cbe-${index + 1}-mathematics`, quantity: 1 },
-    { productId: `cbe-${index + 1}-integrated-science`, quantity: 1 },
-  ],
-  isSample: true,
-}));
+export const schoolLists: SchoolList[] = schools.flatMap((school) =>
+  Array.from({ length: 9 }, (_, index) => {
+    const grade = index + 1;
+
+    return {
+      id: `${school.id}-grade-${grade}`,
+      schoolId: school.id,
+      name: `${school.name} - Grade ${grade} sample list`,
+      grade: `Grade ${grade}`,
+      academicYear: "2026 (sample)",
+      items: [
+        { productId: `cbe-${grade}-english`, quantity: 1 },
+        { productId: `cbe-${grade}-mathematics`, quantity: 1 },
+        { productId: `cbe-${grade}-integrated-science`, quantity: 1 },
+      ],
+      isSample: true as const,
+    };
+  }),
+);

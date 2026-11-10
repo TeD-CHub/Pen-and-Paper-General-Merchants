@@ -63,6 +63,19 @@ export async function getSchool(id: string): Promise<School | undefined> {
   return schools.find((school) => school.id === id);
 }
 
+export function getSchoolSlug(school: School): string {
+  return school.name
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export async function getSchoolBySlug(slug: string): Promise<School | undefined> {
+  return schools.find((school) => getSchoolSlug(school) === slug);
+}
+
 export async function getSchoolLists(schoolId?: string): Promise<SchoolList[]> {
   return schoolLists.filter(
     (schoolList) => !schoolId || schoolList.schoolId === schoolId,

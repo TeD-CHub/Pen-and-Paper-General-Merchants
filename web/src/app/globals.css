@@ -129,3 +129,43 @@ a:not([class]) {
     transform: none;
   }
 }
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  .school-list-print {
+    max-width: none;
+    padding: 0;
+  }
+
+  .school-list-print button,
+  .school-list-print input,
+  .school-list-print select,
+  .school-list-print img,
+  .school-list-no-print,
+  header,
+  footer {
+    display: none !important;
+  }
+
+  .school-list-print,
+  .school-list-print * {
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border-color: #777777 !important;
+  }
+
+  .school-list-print a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+
+  .school-list-print li {
+    break-inside: avoid;
+  }
+}

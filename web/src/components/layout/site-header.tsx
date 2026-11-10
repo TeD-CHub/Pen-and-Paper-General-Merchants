@@ -24,8 +24,8 @@ export function SiteHeader() {
             Shop
           </Link>
           <Link
-            href="#sample-school-list"
-            className="hidden min-h-11 items-center rounded-md px-2 py-2 text-sm font-semibold text-white hover:text-lilac-100 sm:inline-flex sm:text-base"
+            href="/school-lists"
+            className="inline-flex min-h-11 items-center rounded-md px-2 py-2 text-sm font-semibold text-white hover:text-lilac-100 sm:text-base"
           >
             School lists
           </Link>

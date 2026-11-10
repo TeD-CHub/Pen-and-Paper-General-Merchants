@@ -39,7 +39,7 @@ src/
   store/               Zustand browser state, persisted in localStorage
   types/               Shared TypeScript domain types
 public/images/          Local sample image placeholder
-tailwind.config.js      Bright Desk design tokens
+tailwind.config.js      Lighter purple design tokens
 ```
 
 ## Design tokens
@@ -76,14 +76,22 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). You should see a teal and
-warm-white sample homepage, a small sample textbook catalogue, a sample school
-list, and a cart counter. The product photo is an explicitly marked local
-placeholder. Prices are sample KES values, not actual shop prices.
+Open [http://localhost:3000](http://localhost:3000). You should see the lighter
+purple sample storefront, sample textbook catalogue, school-list finder, and
+cart counter. Product photos are local placeholders; prices and school lists
+are sample data, not actual shop information.
 
 Open [http://localhost:3000/styleguide](http://localhost:3000/styleguide) to
 preview the reusable components and their interactive states. Import named
 components from `@/components/ui` or individual component modules.
+
+The school-list experience is available at `/school-lists`, with individual
+sample checklists at `/school-lists/[slug]` and the school enquiry page at
+`/partner-with-us`. The lists support grade selection, selecting items,
+quantity changes, sample totals, cart actions, sharing, and printing. Request,
+review, and partnership forms are frontend demos and do not send or store
+submissions. All sample school names, list contents, availability, and prices
+must be replaced or confirmed before launch.
 
 Check lint and production compilation:
 

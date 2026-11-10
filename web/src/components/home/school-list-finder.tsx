@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import Link from "next/link";
 import { ArrowDown, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -228,6 +229,12 @@ export function SchoolListFinder({
             <p className="mt-3 text-sm text-neutral-500">
               Check your official school list before buying. Titles, editions, and quantities: [PLACEHOLDER].
             </p>
+            <Link
+              href={`/school-lists/${selectedSchool.name.toLocaleLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}?grade=${encodeURIComponent(selected.grade)}`}
+              className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-4 py-2 font-semibold text-accent-contrast hover:bg-accent-hover"
+            >
+              Open checklist and add items
+            </Link>
           </section>
         ) : (
           <div className="flex h-full min-h-56 flex-col items-center justify-center rounded-2xl border border-dashed border-primary/25 bg-primary-light/40 p-6 text-center">
