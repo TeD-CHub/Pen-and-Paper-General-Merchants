@@ -50,6 +50,40 @@ h4 {
   color: #084a44;
 }
 
+[data-scroll-reveal="waiting"] {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+[data-scroll-reveal="visible"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+}
+
+.drawer-dialog {
+  transition:
+    transform 220ms ease-out,
+    opacity 220ms ease-out;
+}
+
+.drawer-dialog[open] {
+  animation: drawer-enter 220ms ease-out;
+}
+
+@keyframes drawer-enter {
+  from {
+    opacity: 0.75;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -58,5 +92,10 @@ h4 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  [data-scroll-reveal="waiting"] {
+    opacity: 1;
+    transform: none;
   }
 }

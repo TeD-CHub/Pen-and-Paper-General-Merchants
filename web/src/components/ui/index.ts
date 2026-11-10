@@ -21,6 +21,7 @@ export { Radio } from "@/components/ui/radio";
 export { Rating } from "@/components/ui/rating";
 export { Select } from "@/components/ui/select";
 export type { SelectOption } from "@/components/ui/select";
+export { ScrollReveal } from "@/components/ui/scroll-reveal";
 export { ProductCardSkeleton, Skeleton } from "@/components/ui/skeleton";
 export { Tabs } from "@/components/ui/tabs";
 export type { TabItem } from "@/components/ui/tabs";

@@ -18,7 +18,7 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Main navigation" className="flex items-center gap-3 sm:gap-6">
           <Link
-            href="#sample-products"
+            href="#shop-by-category"
             className="min-h-11 rounded-md px-2 py-2 text-sm font-semibold text-neutral-700 hover:text-primary sm:text-base"
           >
             Shop
