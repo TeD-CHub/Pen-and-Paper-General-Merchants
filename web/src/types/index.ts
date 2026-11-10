@@ -8,6 +8,7 @@ export interface Product {
   name: string;
   description: string;
   categoryId: string;
+  sku: string;
   curriculum: Curriculum;
   publisher: string;
   grade: string;

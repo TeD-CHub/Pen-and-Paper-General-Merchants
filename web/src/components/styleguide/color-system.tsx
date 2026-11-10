@@ -44,6 +44,7 @@ const sampleProduct: Product = {
   name: "Sample learner’s book",
   description: "Illustrative product for color styleguide only.",
   categoryId: "textbooks",
+  sku: "PP-SAMPLE-STYLEGUIDE",
   curriculum: "CBE",
   publisher: "[SAMPLE PUBLISHER]",
   grade: "Grade 3",
