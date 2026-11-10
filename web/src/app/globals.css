@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+@config "../../tailwind.config.js";
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #fffdf7;
+  --foreground: #243039;
+  --font-heading: "Manrope";
+  --font-body: "Source Sans 3";
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), Arial, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid #0b5d55;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #fffdf7;
+}
+
+::selection {
+  background: #dcefeb;
+  color: #084a44;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

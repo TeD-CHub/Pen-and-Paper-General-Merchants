@@ -1,0 +1,88 @@
+# Pen and Paper storefront frontend
+
+Frontend-only Next.js App Router starter for the Bright Desk visual direction.
+All products, school lists, reviews, and articles are mock data marked as
+sample. Do not treat sample prices, publishers, schools, stock, reviews, or
+articles as real business information.
+
+## Create a fresh project
+
+Run this from the directory in which you want the new app:
+
+```bash
+npx create-next-app@latest pen-and-paper-web --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
+cd pen-and-paper-web
+npm install zustand lucide-react clsx
+```
+
+For this existing checkout, the Next.js + TypeScript + Tailwind app already
+exists in this directory. From `web/`, install the added dependencies with:
+
+```bash
+npm install zustand lucide-react clsx
+```
+
+## Project structure
+
+```text
+src/
+  app/                 Next.js App Router routes and global styles
+  components/
+    ui/                Shared interface primitives
+    layout/            Site header and layout pieces
+    product/           Product catalogue components
+    school-list/       School-list components
+    cart/              Cart interface pieces
+    checkout/          Checkout interface pieces
+  data/                Typed, clearly marked sample datasets
+  lib/api.ts           Async data-access functions (replace implementation for a backend)
+  store/               Zustand browser state, persisted in localStorage
+  types/               Shared TypeScript domain types
+public/images/          Local sample image placeholder
+tailwind.config.js      Bright Desk design tokens
+```
+
+## Design tokens
+
+- **Primary:** teal `#0B5D55` (dark `#084A44`, light `#DCEFEB`)
+- **Secondary:** warm white `#FFFDF7` (dark `#F4EFDF`)
+- **Accent:** amber `#F2B544`; coral `#D9674F`
+- **Neutrals:** `#F8FAFA`, `#EEF2F2`, `#D9E1E2`, `#687579`, `#3A474B`, `#243039`
+- **Status:** success `#176B48`, warning `#855300`, error `#B42318`
+- **Fonts:** Manrope headings and Source Sans 3 body, with system fallbacks
+- **Type scale:** 12px through 48px; base body text is 16px
+- **Spacing:** Tailwind spacing scale plus 4.5rem, 5.5rem, and 6.5rem
+- **Radius:** 6px, 10px, 16px, 24px, and pill
+- **Shadows:** card, raised, and focus
+
+Tailwind 4 is used in this starter. Tokens are defined in
+`tailwind.config.js` and loaded from the global stylesheet with `@config`.
+Global styles provide visible keyboard focus rings and reduced-motion support.
+
+## Run and check
+
+From `web/`:
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). You should see a teal and
+warm-white sample homepage, a small sample textbook catalogue, a sample school
+list, and a cart counter. The product photo is an explicitly marked local
+placeholder. Prices are sample KES values, not actual shop prices.
+
+Open [http://localhost:3000/styleguide](http://localhost:3000/styleguide) to
+preview the reusable components and their interactive states. Import named
+components from `@/components/ui` or individual component modules.
+
+Check lint and production compilation:
+
+```bash
+npm run lint
+npm run build
+```
+
+Google Fonts are requested from Google Fonts in the browser; system font
+fallbacks keep the layout usable if those fonts are unavailable.
