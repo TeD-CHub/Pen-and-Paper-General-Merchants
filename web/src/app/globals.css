@@ -4,15 +4,39 @@
 
 :root {
   color-scheme: light;
-  --background: #fffdf7;
-  --foreground: #243039;
+  --background: #fbf8f1;
+  --surface: #ffffff;
+  --surface-alt: #f3edf7;
+  --border: #938b97;
+  --text: #211c25;
+  --text-muted: #574f5d;
+  --primary: #765392;
+  --primary-hover: #63437c;
+  --primary-contrast: #ffffff;
+  --accent: #705506;
+  --accent-hover: #574205;
+  --accent-contrast: #ffffff;
+  --success: #005344;
+  --success-surface: #d5efe8;
+  --warning: #873126;
+  --warning-surface: #fbe4dc;
+  --error: #67251f;
+  --error-surface: #fff5f1;
+  --focus-ring: #765392;
+  --link: #5b2a86;
   --font-heading: "Manrope";
   --font-body: "Source Sans 3";
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-focus: var(--focus-ring);
+  --color-link: var(--link);
 }
 
 * {
@@ -26,7 +50,7 @@ html {
 body {
   min-height: 100vh;
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -39,15 +63,21 @@ h4 {
   font-family: var(--font-heading), Arial, sans-serif;
 }
 
+a:not([class]) {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 :focus-visible {
-  outline: 3px solid #0b5d55;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
-  box-shadow: 0 0 0 5px #fffdf7;
+  box-shadow: 0 0 0 5px var(--surface);
 }
 
 ::selection {
-  background: #dcefeb;
-  color: #084a44;
+  background: #e7dcef;
+  color: #362147;
 }
 
 [data-scroll-reveal="waiting"] {

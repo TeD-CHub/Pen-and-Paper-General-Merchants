@@ -15,15 +15,15 @@ const statusDetails: Record<StockBadgeStatus, { label: string; tone: BadgeTone }
   "in-stock": { label: "In stock", tone: "success" },
   "low-stock": { label: "Low stock", tone: "warning" },
   "out-of-stock": { label: "Out of stock", tone: "neutral" },
-  sale: { label: "Sale", tone: "accent" },
+  sale: { label: "Sale", tone: "warning" },
 };
 
 const toneClasses: Record<BadgeTone, string> = {
   primary: "bg-primary-light text-primary-dark",
-  accent: "bg-accent text-neutral-900",
+  accent: "bg-lilac-100 text-lilac-900",
   neutral: "bg-neutral-100 text-neutral-700",
-  success: "bg-green-100 text-success",
-  warning: "bg-amber-100 text-warning",
+  success: "bg-teal-100 text-success",
+  warning: "bg-coral-100 text-warning",
 };
 
 export function Badge({ children, status, tone = "neutral" }: BadgeProps) {

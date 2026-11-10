@@ -1,6 +1,6 @@
 # Pen and Paper storefront frontend
 
-Frontend-only Next.js App Router starter for the Bright Desk visual direction.
+Frontend-only Next.js App Router storefront with the approved lighter purple visual direction.
 All products, school lists, reviews, and articles are mock data marked as
 sample. Do not treat sample prices, publishers, schools, stock, reviews, or
 articles as real business information.
@@ -44,11 +44,12 @@ tailwind.config.js      Bright Desk design tokens
 
 ## Design tokens
 
-- **Primary:** teal `#0B5D55` (dark `#084A44`, light `#DCEFEB`)
-- **Secondary:** warm white `#FFFDF7` (dark `#F4EFDF`)
-- **Accent:** amber `#F2B544`; coral `#D9674F`
-- **Neutrals:** `#F8FAFA`, `#EEF2F2`, `#D9E1E2`, `#687579`, `#3A474B`, `#243039`
-- **Status:** success `#176B48`, warning `#855300`, error `#B42318`
+- **Brand purple:** lighter variant `#765392`; hover `#63437C`
+- **Primary actions:** warm gold `#705506`; hover `#574205`; white button text
+- **Surfaces:** cream `#FBF8F1`, white `#FFFFFF`, soft lilac `#F3EDF7`
+- **Text:** charcoal `#211C25`; muted `#574F5D`; visible borders `#938B97`
+- **Status:** teal success `#005344`, coral warning `#873126`, deep coral error `#67251F`
+- **Focus and links:** focus ring `#765392`; link `#5B2A86`
 - **Fonts:** Manrope headings and Source Sans 3 body, with system fallbacks
 - **Type scale:** 12px through 48px; base body text is 16px
 - **Spacing:** Tailwind spacing scale plus 4.5rem, 5.5rem, and 6.5rem
@@ -58,6 +59,13 @@ tailwind.config.js      Bright Desk design tokens
 Tailwind 4 is used in this starter. Tokens are defined in
 `tailwind.config.js` and loaded from the global stylesheet with `@config`.
 Global styles provide visible keyboard focus rings and reduced-motion support.
+The full 50–900 palette, semantic tokens, example component states, contrast
+checks, print notes, and usage guidance are shown at `/styleguide`.
+
+The lighter purple variant retains WCAG AA contrast for normal-size white text.
+Primary actions use the darker gold shade (`#705506`) with white text; gold is
+not used for body text or ordinary badges. State colors use explicit labels and
+tinted surfaces, and important print content remains legible in grayscale.
 
 ## Run and check
 

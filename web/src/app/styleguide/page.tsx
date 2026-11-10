@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ColorSystem } from "@/components/styleguide/color-system";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Drawer } from "@/components/ui/drawer";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -70,9 +71,9 @@ export default function StyleguidePage() {
   const [toastVisible, setToastVisible] = useState(true);
 
   return (
-    <main className="mx-auto max-w-5xl space-y-12 px-4 py-8 sm:px-6 sm:py-12">
+    <main className="mx-auto max-w-7xl space-y-12 px-4 py-8 sm:px-6 sm:py-12">
       <header className="space-y-3">
-        <p className="text-sm font-bold uppercase tracking-wide text-primary">Bright Desk design system</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-primary">Pen and Paper · colour system</p>
         <h1 className="font-heading text-4xl font-extrabold text-neutral-900">UI styleguide</h1>
         <p className="max-w-3xl text-lg text-neutral-700">
           Reusable accessible interface components. All school and product examples here are sample content.
@@ -80,9 +81,15 @@ export default function StyleguidePage() {
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Styleguide" }]} />
       </header>
 
+      <ColorSystem />
+
       <Section id="buttons" title="Button">
         <div className="flex flex-wrap items-center gap-3">
-          <Button>Primary</Button>
+          <Button>Gold primary action</Button>
+          <Button className="hover:bg-accent-hover">Hover me</Button>
+          <Button className="focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-focus">
+            Focus style
+          </Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="danger">Danger</Button>
@@ -223,7 +230,7 @@ export default function StyleguidePage() {
         </div>
       </Section>
 
-      <footer className="border-t border-neutral-200 pt-5 text-sm text-neutral-500">
+      <footer className="rounded-xl bg-primary-dark px-5 py-4 text-sm text-white">
         Styleguide examples are not real products, reviews, or business policies.
       </footer>
     </main>

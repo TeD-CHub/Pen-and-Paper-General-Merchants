@@ -9,7 +9,7 @@ export function Skeleton({ className }: SkeletonProps) {
   return (
     <span
       aria-hidden="true"
-      className={clsx("block animate-pulse rounded-md bg-neutral-200 motion-reduce:animate-none", className)}
+      className={clsx("block animate-pulse rounded-md bg-neutral-100 motion-reduce:animate-none", className)}
     />
   );
 }

@@ -21,7 +21,7 @@ export function NewsletterSignup() {
       className="grid gap-6 rounded-3xl bg-primary p-6 text-white sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:items-center"
     >
       <div>
-        <span className="grid size-11 place-items-center rounded-xl bg-white/10 text-accent">
+        <span className="grid size-11 place-items-center rounded-xl bg-white/10 text-white">
           <Mail aria-hidden="true" size={22} />
         </span>
         <h2
@@ -30,7 +30,7 @@ export function NewsletterSignup() {
         >
           School updates, straight to your inbox
         </h2>
-        <p className="mt-2 max-w-xl text-base leading-7 text-white/85">
+        <p className="mt-2 max-w-xl text-base leading-7 text-white">
           Sign up for helpful school-shopping reminders and new-arrival notes. How often we’ll write: [PLACEHOLDER].
         </p>
       </div>
@@ -41,9 +41,9 @@ export function NewsletterSignup() {
             aria-live="polite"
             className="rounded-2xl border border-white/15 bg-white/10 p-5"
           >
-            <CheckCircle2 aria-hidden="true" size={25} className="text-accent" />
+            <CheckCircle2 aria-hidden="true" size={25} className="text-teal-100" />
             <p className="mt-2 font-heading text-lg font-extrabold">Asante!</p>
-            <p className="mt-1 text-white/90">
+            <p className="mt-1 text-white">
               This demo saved no details and did not send your email. Newsletter signup will be connected later.
             </p>
           </div>
@@ -63,7 +63,7 @@ export function NewsletterSignup() {
             <Button type="submit" variant="secondary" className="w-full border-white text-primary">
               Sign me up
             </Button>
-            <p className="text-sm text-white/75">
+            <p className="text-sm text-white">
               Demo only. Your email won’t be stored or sent.
             </p>
           </form>

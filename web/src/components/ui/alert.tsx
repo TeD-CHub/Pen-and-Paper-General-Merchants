@@ -12,10 +12,10 @@ interface AlertProps {
 }
 
 const styles: Record<AlertVariant, string> = {
-  info: "border-primary/20 bg-primary-light text-primary-dark",
-  success: "border-success/20 bg-green-50 text-success",
-  warning: "border-warning/20 bg-amber-50 text-warning",
-  error: "border-error/20 bg-red-50 text-error",
+  info: "border-primary bg-primary-light text-primary-dark",
+  success: "border-success bg-teal-50 text-success",
+  warning: "border-warning bg-coral-100 text-warning",
+  error: "border-error bg-error-light text-error",
 };
 
 const icons = {

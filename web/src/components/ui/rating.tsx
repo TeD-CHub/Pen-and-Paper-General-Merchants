@@ -50,7 +50,7 @@ export function Rating({ value, max = 5, onChange, label = "Rating" }: RatingPro
             onKeyDown={(event) => handleKeyDown(event, star)}
             onFocus={() => setFocusedValue(star)}
             onBlur={() => setFocusedValue(value)}
-            className="grid size-11 place-items-center rounded-md text-amber-600"
+            className="grid size-11 place-items-center rounded-md text-gold-700"
           >
             <Star aria-hidden="true" size={20} fill={filled ? "currentColor" : "none"} />
           </button>
@@ -59,7 +59,7 @@ export function Rating({ value, max = 5, onChange, label = "Rating" }: RatingPro
             key={star}
             aria-hidden="true"
             size={18}
-            className={filled ? "text-amber-600" : "text-neutral-200"}
+            className={filled ? "text-gold-700" : "text-neutral-200"}
             fill={filled ? "currentColor" : "none"}
           />
         );

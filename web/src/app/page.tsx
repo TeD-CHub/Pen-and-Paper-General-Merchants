@@ -22,21 +22,21 @@ const steps = [
     number: "01",
     title: "Choose what you need",
     description:
-      "Browse the catalogue or check your school’s book list. If you’re unsure, ask us for help. Contact details: [PLACEHOLDER].",
+      "Browse the catalogue or check your school’s book list. If you’re unsure, our team is happy to help.",
     icon: BookOpen,
   },
   {
     number: "02",
     title: "Pay with M-Pesa",
     description:
-      "At checkout, choose M-Pesa and follow the payment prompt. Checkout and payment instructions: [PLACEHOLDER].",
+      "Choose M-Pesa at checkout and follow the payment prompt when placing your order.",
     icon: PencilRuler,
   },
   {
     number: "03",
     title: "Get your order delivered",
     description:
-      "Delivery is available countrywide. Delivery times, areas, and fees: [PLACEHOLDER].",
+      "We deliver across Kenya. Delivery options and charges may vary by destination and order.",
     icon: Truck,
   },
 ];
@@ -45,7 +45,7 @@ const reasons = [
   {
     title: "Personal service",
     description:
-      "Need help finding a title or understanding a list? We’re here to help. WhatsApp number: [PLACEHOLDER].",
+      "Need help finding a title or understanding a list? Our team is happy to help.",
     icon: HeartHandshake,
   },
   {
@@ -57,7 +57,7 @@ const reasons = [
   {
     title: "Countrywide delivery",
     description:
-      "We deliver across Kenya. Delivery areas, timing, and fees depend on details to be confirmed: [PLACEHOLDER].",
+      "We deliver across Kenya; delivery times and charges may vary by destination.",
     icon: MapPinned,
   },
 ];
@@ -83,22 +83,22 @@ export default async function Home() {
           <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-20">
             <div className="relative z-10">
               <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-bold text-white">
-                <span className="size-2 rounded-full bg-accent" aria-hidden="true" />
+                <span className="size-2 rounded-full bg-white" aria-hidden="true" />
                 For families, schools & more
               </p>
               <h1 className="mt-5 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
                 A good school day starts with the right supplies.
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-7 text-white/85 sm:text-xl">
+              <p className="mt-5 max-w-xl text-lg leading-7 text-white sm:text-xl">
                 From books to the little classroom essentials, let’s get them ready for the term — bila stress.
               </p>
-              <p className="mt-3 text-sm text-white/75">
+              <p className="mt-3 text-sm text-white">
                 Pen and Paper · Tassia Complex, off Fedha Road, Nairobi
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#featured-textbooks"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 font-heading font-extrabold text-neutral-900 transition-colors hover:bg-amber-300"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 font-heading font-extrabold text-accent-contrast transition-colors hover:bg-accent-hover"
                 >
                   Shop Books
                   <ArrowRight aria-hidden="true" size={18} />
@@ -111,8 +111,8 @@ export default async function Home() {
                   <ArrowDown aria-hidden="true" size={18} />
                 </a>
               </div>
-              <p className="mt-3 text-sm text-white/65">
-                Sample online catalogue · Real product availability and prices: [PLACEHOLDER]
+              <p className="mt-3 text-sm text-white">
+                Sample online catalogue · Product availability and prices are for illustration
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export default async function Home() {
                     <span className="grid size-12 place-items-center rounded-2xl bg-primary text-white">
                       <BookOpen aria-hidden="true" size={25} />
                     </span>
-                    <span className="rounded-full bg-accent/70 px-3 py-1 text-xs font-extrabold uppercase tracking-wide">
+                    <span className="rounded-full bg-lilac-100 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-lilac-900">
                       School-ready
                     </span>
                   </div>
@@ -150,7 +150,7 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -left-2 hidden items-center gap-2 rounded-xl bg-accent px-4 py-3 font-heading text-sm font-extrabold text-neutral-900 shadow-raised sm:flex">
+              <div className="absolute -bottom-4 -left-2 hidden items-center gap-2 rounded-xl bg-lilac-100 px-4 py-3 font-heading text-sm font-extrabold text-lilac-900 shadow-raised sm:flex">
                 <PencilRuler aria-hidden="true" size={19} />
                 Ready for the school run
               </div>
@@ -289,12 +289,12 @@ export default async function Home() {
                     <div className="relative aspect-[16/9] bg-neutral-50">
                       <Image
                         src={post.image}
-                        alt="Sample school-supplies image placeholder"
+                        alt="School supplies and learning materials"
                         fill
                         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
                         className="object-cover"
                       />
-                      <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-extrabold text-neutral-900">
+                      <span className="absolute left-3 top-3 rounded-full bg-lilac-100 px-3 py-1 text-xs font-extrabold text-lilac-900">
                         SAMPLE ARTICLE
                       </span>
                     </div>
@@ -319,10 +319,10 @@ export default async function Home() {
           </ScrollReveal>
         </div>
       </main>
-      <footer className="border-t border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-7 text-sm text-neutral-700 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <footer className="border-t border-primary-dark bg-primary-dark text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-7 text-sm text-white sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>Pen and Paper · Tassia Complex, off Fedha Road, Nairobi</p>
-          <p>Contact details, opening hours, and delivery terms: [PLACEHOLDER].</p>
+          <p>Delivery options and charges may vary by destination and order.</p>
         </div>
       </footer>
     </>

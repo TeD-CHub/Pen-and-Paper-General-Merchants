@@ -112,7 +112,7 @@ export function CategoryShowcase({
                   <span className="block font-heading font-extrabold">
                     {category.name}
                   </span>
-                  <span className={`text-sm ${selected ? "text-white/80" : "text-neutral-500"}`}>
+                  <span className={`text-sm ${selected ? "text-white" : "text-neutral-500"}`}>
                     {count ? `${count} sample titles` : "More items coming"}
                   </span>
                 </span>
