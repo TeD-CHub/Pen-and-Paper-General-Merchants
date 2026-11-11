@@ -5,8 +5,16 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Sparkles, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 
-// 3D Procedural Book Component
-function Book({ position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: { position?: [number, number, number]; rotation?: [number, number, number]; scale?: number }) {
+// 3D Procedural Hardbound Book Component
+function Book({
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  scale = 1,
+}: {
+  position?: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: number;
+}) {
   const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
   const targetRotation = useRef({ x: rotation[0], y: rotation[1], z: rotation[2] });
@@ -62,7 +70,7 @@ function Book({ position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: { posit
         <meshStandardMaterial color="#FAF5FF" roughness={0.8} />
       </mesh>
 
-      {/* Book Spine (Accent Purple) */}
+      {/* Book Spine (Accent Deep Purple) */}
       <mesh position={[-0.82, 0, 0]}>
         <cylinderGeometry args={[0.17, 0.17, 2.3, 16]} />
         <meshStandardMaterial color="#3B0764" roughness={0.3} metalness={0.3} />
@@ -88,7 +96,15 @@ function Book({ position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: { posit
 }
 
 // 3D Procedural Fountain Pen Component
-function FountainPen({ position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: { position?: [number, number, number]; rotation?: [number, number, number]; scale?: number }) {
+function FountainPen({
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  scale = 1,
+}: {
+  position?: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: number;
+}) {
   const penRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
 
@@ -152,8 +168,68 @@ function FountainPen({ position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: 
   );
 }
 
+// 3D Procedural Stationery Ruler Component
+function FloatingRuler({
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  scale = 1,
+}: {
+  position?: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: number;
+}) {
+  const ref = useRef<THREE.Group>(null);
+  const [hovered, setHovered] = useState(false);
+
+  useFrame((_, delta) => {
+    if (!ref.current) return;
+    ref.current.rotation.z += (hovered ? 1.4 : 0.3) * delta;
+  });
+
+  return (
+    <group
+      ref={ref}
+      position={position}
+      rotation={rotation}
+      scale={scale}
+      onPointerOver={(e) => {
+        e.stopPropagation();
+        setHovered(true);
+        if (typeof document !== "undefined") document.body.style.cursor = "pointer";
+      }}
+      onPointerOut={() => {
+        setHovered(false);
+        if (typeof document !== "undefined") document.body.style.cursor = "auto";
+      }}
+    >
+      <mesh castShadow>
+        <boxGeometry args={[0.26, 1.8, 0.04]} />
+        <meshStandardMaterial
+          color={hovered ? "#DDD6FE" : "#C4B5FD"}
+          metalness={0.7}
+          roughness={0.2}
+        />
+      </mesh>
+      {[-0.7, -0.5, -0.3, -0.1, 0.1, 0.3, 0.5, 0.7].map((y, i) => (
+        <mesh key={i} position={[0.07, y, 0.022]}>
+          <boxGeometry args={[0.09, 0.02, 0.005]} />
+          <meshStandardMaterial color="#4C1D95" />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
 // 3D Floating Geometry / Stationery Sphere
-function FloatingGlobe({ position = [0, 0, 0], color = "#8B5CF6", size = 0.4 }: { position?: [number, number, number]; color?: string; size?: number }) {
+function FloatingGlobe({
+  position = [0, 0, 0],
+  color = "#8B5CF6",
+  size = 0.4,
+}: {
+  position?: [number, number, number];
+  color?: string;
+  size?: number;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -175,15 +251,15 @@ function FloatingGlobe({ position = [0, 0, 0], color = "#8B5CF6", size = 0.4 }: 
   );
 }
 
-// 3D Interactive Scene Container
+// 3D Interactive Scene Container (Full Background)
 export function HeroScene3D() {
   return (
-    <div className="relative h-[340px] w-full select-none sm:h-[420px] lg:h-[460px]">
+    <div className="relative h-full w-full select-none overflow-hidden">
       <Canvas
-        camera={{ position: [0, 0, 6], fov: 42 }}
+        camera={{ position: [0, 0, 6], fov: 45 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
-        className="pointer-events-auto h-full w-full"
+        className="h-full w-full pointer-events-auto"
       >
         {/* Lights */}
         <ambientLight intensity={0.9} />
@@ -191,34 +267,41 @@ export function HeroScene3D() {
         <pointLight position={[-4, 3, 2]} intensity={1.5} color="#A78BFA" />
         <pointLight position={[3, -2, 2]} intensity={1.2} color="#6D28D9" />
 
-        {/* Ambient Purple Sparkles */}
-        <Sparkles count={35} scale={7} size={2.8} speed={0.5} color="#DDD6FE" opacity={0.65} />
+        {/* Ambient Purple Sparkles across the hero background */}
+        <Sparkles count={55} scale={12} size={3.2} speed={0.4} color="#DDD6FE" opacity={0.7} />
 
-        {/* Main Floating Book */}
+        {/* Main Floating Hardbound Book (Positioned on the right side of the hero) */}
         <Float speed={2} rotationIntensity={0.6} floatIntensity={0.8} floatingRange={[-0.15, 0.15]}>
-          <Book position={[-0.2, 0.1, 0.2]} rotation={[0.2, -0.35, 0.1]} scale={1.2} />
+          <Book position={[1.5, 0.1, 0.2]} rotation={[0.2, -0.35, 0.1]} scale={1.2} />
         </Float>
 
         {/* Floating Secondary Book / Notebook */}
         <Float speed={1.7} rotationIntensity={0.8} floatIntensity={0.7} floatingRange={[-0.2, 0.2]}>
-          <Book position={[1.4, -0.6, -0.6]} rotation={[-0.25, 0.5, -0.15]} scale={0.95} />
+          <Book position={[2.7, -0.7, -0.6]} rotation={[-0.25, 0.5, -0.15]} scale={0.95} />
         </Float>
 
         {/* Interactive Floating Pen */}
         <Float speed={2.4} rotationIntensity={1.2} floatIntensity={1.1} floatingRange={[-0.25, 0.25]}>
-          <FountainPen position={[-1.7, 0.5, 0.4]} rotation={[0.4, 0.2, -0.65]} scale={1.15} />
+          <FountainPen position={[0.6, 0.9, 0.6]} rotation={[0.4, 0.2, -0.65]} scale={1.15} />
         </Float>
 
-        {/* Floating Glowing Decorative Orbs */}
+        {/* Floating Stationery Ruler */}
+        <Float speed={1.5} rotationIntensity={0.9} floatIntensity={0.6}>
+          <FloatingRuler position={[2.1, 1.2, -0.4]} rotation={[0.1, 0.2, 0.6]} scale={0.9} />
+        </Float>
+
+        {/* Floating Glowing Decorative Orbs across the background */}
         <Float speed={3} rotationIntensity={0.5} floatIntensity={1.2}>
-          <FloatingGlobe position={[1.8, 1.2, -0.5]} color="#C4B5FD" size={0.32} />
-          <FloatingGlobe position={[-1.8, -1.1, -0.2]} color="#7C3AED" size={0.24} />
-          <FloatingGlobe position={[0.2, 1.8, -1]} color="#EDE9FE" size={0.2} />
+          <FloatingGlobe position={[2.2, 1.5, -0.5]} color="#C4B5FD" size={0.32} />
+          <FloatingGlobe position={[-2.4, 1.4, -1]} color="#7C3AED" size={0.3} />
+          <FloatingGlobe position={[-1.8, -1.0, -0.5]} color="#A78BFA" size={0.22} />
+          <FloatingGlobe position={[3.1, -1.3, -0.8]} color="#DDD6FE" size={0.25} />
+          <FloatingGlobe position={[-0.5, 2.0, -1.2]} color="#EDE9FE" size={0.2} />
         </Float>
 
         {/* Soft Grounded Purple Shadow */}
         <ContactShadows
-          position={[0, -2.1, 0]}
+          position={[1.5, -2.1, 0]}
           opacity={0.35}
           scale={9}
           blur={2.4}
@@ -228,9 +311,9 @@ export function HeroScene3D() {
       </Canvas>
 
       {/* Interactive Helper Overlay Badge */}
-      <div className="pointer-events-none absolute bottom-3 right-4 flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-950/60 px-3.5 py-1.5 text-[11px] font-bold text-purple-200 backdrop-blur-md shadow-sm">
+      <div className="pointer-events-none absolute bottom-4 right-6 flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-950/70 px-4 py-2 text-xs font-bold text-purple-200 backdrop-blur-md shadow-lg">
         <span className="size-2 animate-pulse rounded-full bg-purple-400" />
-        <span>Interactive 3D Preview &bull; Hover to explore</span>
+        <span>Interactive 3D &bull; Hover to explore</span>
       </div>
     </div>
   );

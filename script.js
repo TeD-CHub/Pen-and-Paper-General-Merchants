@@ -64,21 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Interactive 3D Hero Scene (Three.js WebGL)
+ * Interactive 3D Hero Scene (Three.js WebGL Full Background)
  */
 function initHero3D() {
   const container = document.getElementById("three-canvas-container");
-  const fallbackPhoto = document.getElementById("hero-fallback-photo");
+  const wrapper = document.getElementById("hero-3d-wrapper");
   if (!container || typeof THREE === "undefined") return;
 
   try {
     // Scene & Camera
     const scene = new THREE.Scene();
-    const width = container.clientWidth || 500;
-    const height = container.clientHeight || 420;
+    const width = container.clientWidth || window.innerWidth;
+    const height = container.clientHeight || 640;
 
-    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    camera.position.set(0, 0, 5.8);
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+    camera.position.set(0, 0, 6);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
@@ -92,21 +92,21 @@ function initHero3D() {
     scene.add(ambientLight);
 
     const dirLight = new THREE.DirectionalLight(0xffffff, 1.8);
-    dirLight.position.set(4, 5, 4);
+    dirLight.position.set(5, 6, 4);
     dirLight.castShadow = true;
     scene.add(dirLight);
 
-    const purplePoint1 = new THREE.PointLight(0xa78bfa, 2, 10);
-    purplePoint1.position.set(-3, 2, 2);
+    const purplePoint1 = new THREE.PointLight(0xa78bfa, 2, 12);
+    purplePoint1.position.set(-4, 3, 2);
     scene.add(purplePoint1);
 
-    const purplePoint2 = new THREE.PointLight(0x7c3aed, 1.8, 10);
+    const purplePoint2 = new THREE.PointLight(0x7c3aed, 1.8, 12);
     purplePoint2.position.set(3, -2, 2);
     scene.add(purplePoint2);
 
-    // 1. Procedural 3D Book Group
+    // 1. Procedural 3D Hardbound Book Group (Right Side)
     const bookGroup = new THREE.Group();
-    bookGroup.position.set(-0.15, 0.05, 0.1);
+    bookGroup.position.set(1.5, 0.1, 0.2);
     bookGroup.rotation.set(0.2, -0.35, 0.1);
 
     // Cover
@@ -159,9 +159,9 @@ function initHero3D() {
 
     // 2. Secondary Floating Book
     const bookGroup2 = new THREE.Group();
-    bookGroup2.position.set(1.4, -0.6, -0.6);
+    bookGroup2.position.set(2.7, -0.7, -0.6);
     bookGroup2.rotation.set(-0.25, 0.5, -0.15);
-    bookGroup2.scale.set(0.9, 0.9, 0.9);
+    bookGroup2.scale.set(0.92, 0.92, 0.92);
 
     const cover2 = new THREE.Mesh(
       coverGeo,
@@ -175,7 +175,7 @@ function initHero3D() {
 
     // 3. Floating 3D Fountain Pen
     const penGroup = new THREE.Group();
-    penGroup.position.set(-1.6, 0.5, 0.4);
+    penGroup.position.set(0.6, 0.9, 0.6);
     penGroup.rotation.set(0.4, 0.2, -0.65);
 
     const barrel = new THREE.Mesh(
@@ -217,7 +217,7 @@ function initHero3D() {
       opacity: 0.85,
     });
     const orb1 = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), sphereMat1);
-    orb1.position.set(1.8, 1.1, -0.5);
+    orb1.position.set(2.2, 1.4, -0.5);
     scene.add(orb1);
 
     const sphereMat2 = new THREE.MeshStandardMaterial({
@@ -227,23 +227,31 @@ function initHero3D() {
       transparent: true,
       opacity: 0.8,
     });
-    const orb2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 24), sphereMat2);
-    orb2.position.set(-1.8, -1.1, -0.2);
+    const orb2 = new THREE.Mesh(new THREE.SphereGeometry(0.28, 24, 24), sphereMat2);
+    orb2.position.set(-2.4, 1.3, -1.0);
     scene.add(orb2);
 
-    // 5. Ambient Sparkle Particles
-    const particleCount = 40;
+    const orb3 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 24), sphereMat1);
+    orb3.position.set(-1.8, -1.0, -0.5);
+    scene.add(orb3);
+
+    const orb4 = new THREE.Mesh(new THREE.SphereGeometry(0.25, 24, 24), sphereMat2);
+    orb4.position.set(3.1, -1.2, -0.8);
+    scene.add(orb4);
+
+    // 5. Ambient Sparkle Particles Across Full Background
+    const particleCount = 60;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i += 3) {
-      particlePositions[i] = (Math.random() - 0.5) * 7;
-      particlePositions[i + 1] = (Math.random() - 0.5) * 6;
-      particlePositions[i + 2] = (Math.random() - 0.5) * 4;
+      particlePositions[i] = (Math.random() - 0.5) * 14;
+      particlePositions[i + 1] = (Math.random() - 0.5) * 8;
+      particlePositions[i + 2] = (Math.random() - 0.5) * 5;
     }
     particleGeo.setAttribute("position", new THREE.BufferAttribute(particlePositions, 3));
     const particleMat = new THREE.PointsMaterial({
       color: 0xddd6fe,
-      size: 0.06,
+      size: 0.07,
       transparent: true,
       opacity: 0.75,
     });
@@ -273,22 +281,24 @@ function initHero3D() {
       targetY += (mouseY - targetY) * 0.05;
 
       // Floating gentle bobbing
-      bookGroup.position.y = 0.05 + Math.sin(elapsedTime * 1.5) * 0.08;
+      bookGroup.position.y = 0.1 + Math.sin(elapsedTime * 1.5) * 0.08;
       bookGroup.rotation.y = -0.35 + targetX * 0.3;
       bookGroup.rotation.x = 0.2 - targetY * 0.25;
 
-      bookGroup2.position.y = -0.6 + Math.cos(elapsedTime * 1.2) * 0.09;
+      bookGroup2.position.y = -0.7 + Math.cos(elapsedTime * 1.2) * 0.09;
       bookGroup2.rotation.y = 0.5 + targetX * 0.2;
 
-      penGroup.position.y = 0.5 + Math.sin(elapsedTime * 1.8 + 1) * 0.1;
+      penGroup.position.y = 0.9 + Math.sin(elapsedTime * 1.8 + 1) * 0.1;
       penGroup.rotation.z = -0.65 + Math.sin(elapsedTime * 1.5) * 0.15;
       penGroup.rotation.y = 0.2 + targetX * 0.4;
 
-      orb1.position.y = 1.1 + Math.sin(elapsedTime * 2) * 0.08;
-      orb2.position.y = -1.1 + Math.cos(elapsedTime * 2.2) * 0.07;
+      orb1.position.y = 1.4 + Math.sin(elapsedTime * 2) * 0.08;
+      orb2.position.y = 1.3 + Math.cos(elapsedTime * 2.2) * 0.07;
+      orb3.position.y = -1.0 + Math.sin(elapsedTime * 1.7) * 0.06;
+      orb4.position.y = -1.2 + Math.cos(elapsedTime * 2.0) * 0.08;
 
-      particles.rotation.y = elapsedTime * 0.04;
-      particles.rotation.x = elapsedTime * 0.02;
+      particles.rotation.y = elapsedTime * 0.03;
+      particles.rotation.x = elapsedTime * 0.015;
 
       renderer.render(scene, camera);
     }
@@ -298,8 +308,8 @@ function initHero3D() {
     // Resize Handler
     function handleResize() {
       if (!container) return;
-      const newWidth = container.clientWidth;
-      const newHeight = container.clientHeight;
+      const newWidth = container.clientWidth || window.innerWidth;
+      const newHeight = container.clientHeight || 640;
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
@@ -307,10 +317,10 @@ function initHero3D() {
 
     window.addEventListener("resize", handleResize);
 
-    // Reveal 3D canvas and hide fallback image
+    // Reveal 3D canvas and mark background active
     container.classList.add("is-active");
-    if (fallbackPhoto) {
-      fallbackPhoto.classList.add("has-three-js");
+    if (wrapper) {
+      wrapper.classList.add("has-three-js");
     }
   } catch (err) {
     console.warn("WebGL not supported or failed to initialize Three.js scene:", err);

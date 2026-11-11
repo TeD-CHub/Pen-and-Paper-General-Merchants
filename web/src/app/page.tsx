@@ -73,8 +73,20 @@ export default async function Home() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
-        {/* Modern Purple Hero Section */}
-        <section className="relative isolate overflow-hidden bg-gradient-to-br from-purple-950 via-purple-900 to-primary text-white">
+        {/* Modern Purple Hero Section with Interactive 3D Background */}
+        <section className="relative isolate min-h-[600px] overflow-hidden bg-gradient-to-br from-purple-950 via-purple-900 to-primary text-white sm:min-h-[660px] lg:min-h-[720px] flex items-center">
+          {/* 3D Interactive Canvas Full Background */}
+          <div className="absolute inset-0 z-0">
+            <Hero3DWrapper />
+          </div>
+
+          {/* Contrast-enhancing gradient wash: dark on text side, transparent over 3D objects */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-purple-950/95 via-purple-950/75 to-purple-950/20 sm:to-transparent"
+          />
+
+          {/* Ambient Purple Glow Accents */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-24 -top-32 size-[32rem] rounded-full bg-purple-500/15 blur-3xl"
@@ -84,22 +96,23 @@ export default async function Home() {
             className="pointer-events-none absolute -left-24 -bottom-32 size-[28rem] rounded-full bg-purple-600/10 blur-3xl"
           />
 
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-24">
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-500/20 px-3.5 py-1.5 text-xs font-bold tracking-wide text-purple-100 backdrop-blur-md">
+          {/* Hero Content Overlay (Passes mouse events to 3D canvas; buttons remain clickable) */}
+          <div className="pointer-events-none relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+            <div className="max-w-2xl">
+              <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-500/20 px-3.5 py-1.5 text-xs font-bold tracking-wide text-purple-100 backdrop-blur-md shadow-sm">
                 <span className="size-2 rounded-full bg-purple-300" aria-hidden="true" />
                 School Supplies &amp; Books &bull; Nairobi, Kenya
               </div>
 
-              <h1 className="mt-5 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white">
+              <h1 className="mt-5 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white drop-shadow-md">
                 Big ideas start with the <span className="text-purple-200">right supplies.</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-purple-100/90 sm:text-xl">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-purple-100/90 sm:text-xl drop-shadow">
                 Approved CBC textbooks, durable exercise books, and everyday school essentials. Retail convenience and wholesale savings for every curious learner.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row">
+              <div className="pointer-events-auto mt-8 flex flex-col gap-3.5 sm:flex-row">
                 <a
                   href="#featured-textbooks"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-heading font-extrabold text-purple-950 shadow-md transition-all hover:bg-purple-50 hover:shadow-lg"
@@ -109,7 +122,7 @@ export default async function Home() {
                 </a>
                 <a
                   href="#sample-school-list"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-heading font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/30 bg-purple-950/40 px-6 py-3 font-heading font-bold text-white backdrop-blur-md transition-all hover:bg-white/20"
                 >
                   Find Your School List
                   <ArrowDown aria-hidden="true" size={18} />
@@ -127,10 +140,6 @@ export default async function Home() {
                   <span className="text-purple-300">✓</span> Countrywide Delivery
                 </span>
               </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <Hero3DWrapper />
             </div>
           </div>
         </section>

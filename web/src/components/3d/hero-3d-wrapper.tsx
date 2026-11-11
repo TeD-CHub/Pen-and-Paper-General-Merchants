@@ -8,16 +8,11 @@ const HeroScene3D = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-[340px] w-full flex-col items-center justify-center rounded-2xl border border-purple-400/20 bg-purple-950/30 p-8 text-center backdrop-blur-md sm:h-[420px] lg:h-[460px]">
-        <div className="flex size-14 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300 shadow-inner">
-          <BookOpen aria-hidden="true" size={28} className="animate-pulse" />
+      <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-purple-950/20">
+        <div className="flex items-center gap-2 rounded-full border border-purple-400/20 bg-purple-900/40 px-4 py-2 text-xs font-semibold text-purple-300 backdrop-blur-sm">
+          <BookOpen aria-hidden="true" size={16} className="animate-pulse" />
+          <span>Loading 3D Scene...</span>
         </div>
-        <p className="mt-4 font-heading text-sm font-bold text-purple-200">
-          Loading Interactive 3D Experience...
-        </p>
-        <span className="mt-1 text-xs text-purple-300/70">
-          Powered by React Three Fiber
-        </span>
       </div>
     ),
   }
@@ -25,7 +20,7 @@ const HeroScene3D = dynamic(
 
 export function Hero3DWrapper() {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-purple-400/25 bg-gradient-to-b from-purple-900/40 to-purple-950/60 p-2 shadow-2xl backdrop-blur-md">
+    <div className="relative h-full w-full overflow-hidden">
       <HeroScene3D />
     </div>
   );
