@@ -17,6 +17,11 @@ export default async function CartPage() {
       <main className="mx-auto min-h-[60vh] max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         <CartContents products={products} />
       </main>
+      <footer className="border-t border-primary-dark bg-primary-dark text-white">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-sm sm:px-6 lg:px-8">
+          Pen and Paper · Tassia Complex, off Fedha Road, Nairobi
+        </div>
+      </footer>
     </>
   );
 }

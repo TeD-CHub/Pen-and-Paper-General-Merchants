@@ -19,11 +19,11 @@ const statusDetails: Record<StockBadgeStatus, { label: string; tone: BadgeTone }
 };
 
 const toneClasses: Record<BadgeTone, string> = {
-  primary: "bg-primary-light text-primary-dark",
-  accent: "bg-lilac-100 text-lilac-900",
-  neutral: "bg-neutral-100 text-neutral-700",
-  success: "bg-teal-100 text-success",
-  warning: "bg-coral-100 text-warning",
+  primary: "bg-purple-100 text-purple-900 border border-purple-200",
+  accent: "bg-primary text-white",
+  neutral: "bg-purple-50 text-purple-800 border border-purple-200",
+  success: "bg-emerald-50 text-emerald-800 border border-emerald-200",
+  warning: "bg-amber-50 text-amber-800 border border-amber-200",
 };
 
 export function Badge({ children, status, tone = "neutral" }: BadgeProps) {

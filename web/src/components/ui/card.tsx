@@ -11,7 +11,7 @@ export function Card({ title, children, className, ...props }: CardProps) {
   return (
     <section
       {...props}
-      className={clsx("rounded-lg border border-neutral-200 bg-white p-5", className)}
+      className={clsx("rounded-xl border border-neutral-200 bg-white p-5 shadow-card", className)}
     >
       {title ? <h3 className="mb-3 font-heading text-lg font-bold text-neutral-900">{title}</h3> : null}
       {children}

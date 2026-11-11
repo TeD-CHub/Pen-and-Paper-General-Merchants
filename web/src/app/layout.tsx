@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppFloatingButton } from "@/components/layout/whatsapp-floating-button";
 import "./globals.css";
 
@@ -14,7 +13,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" data-scroll-behavior="smooth">
       <body className="min-h-screen antialiased font-body">
         {children}
-        <SiteFooter />
         <WhatsAppFloatingButton />
       </body>
     </html>

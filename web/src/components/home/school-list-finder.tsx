@@ -93,8 +93,8 @@ export function SchoolListFinder({
       className="grid gap-8 rounded-3xl border border-primary/10 bg-white p-5 shadow-card sm:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start"
     >
       <div>
-        <p className="text-sm font-bold uppercase tracking-wide text-primary">
-          Less guesswork, mama na baba
+        <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
+          Fast Booklist Lookup
         </p>
         <h2
           id="school-list-heading"
@@ -102,11 +102,8 @@ export function SchoolListFinder({
         >
           Find your school list
         </h2>
-        <p className="mt-3 text-base leading-7 text-neutral-700">
-          Search by school name, area, or grade. We’ll show available sample lists here.
-        </p>
-        <p className="mt-2 text-sm text-neutral-500">
-          These school names and lists are examples, not official school requirements.
+        <p className="mt-3 text-base leading-relaxed text-neutral-700">
+          Search by school name, area, or grade to browse curriculum-aligned booklists.
         </p>
         <form onSubmit={handleSubmit} className="relative mt-5">
           <div className="relative">
@@ -231,7 +228,7 @@ export function SchoolListFinder({
             </p>
             <Link
               href={`/school-lists/${selectedSchool.name.toLocaleLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}?grade=${encodeURIComponent(selected.grade)}`}
-              className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-4 py-2 font-semibold text-accent-contrast hover:bg-accent-hover"
+              className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors"
             >
               Open checklist and add items
             </Link>

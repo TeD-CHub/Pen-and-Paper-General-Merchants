@@ -1,50 +1,61 @@
-const productCards = [...document.querySelectorAll(".product-card")];
-const filterButtons = [...document.querySelectorAll(".filter-chip")];
-const menuToggle = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".main-nav");
+/**
+ * Pen and Paper Provisions — Interactive Storefront Script
+ */
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    filterButtons.forEach((filterButton) => {
-      const isActive = filterButton === button;
-      filterButton.classList.toggle("is-active", isActive);
-      filterButton.setAttribute("aria-pressed", String(isActive));
+document.addEventListener("DOMContentLoaded", () => {
+  const productCards = [...document.querySelectorAll(".product-card")];
+  const filterButtons = [...document.querySelectorAll(".filter-chip")];
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navigation = document.querySelector(".main-nav");
+
+  // Category Filtering
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      // Update active states
+      filterButtons.forEach((btn) => {
+        const isActive = btn === button;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+
+      // Filter product cards with smooth transition
+      productCards.forEach((card) => {
+        const matches = filter === "all" || card.dataset.category === filter;
+        card.hidden = !matches;
+      });
     });
-    productCards.forEach((card) => {
-      card.hidden = filter !== "all" && card.dataset.category !== filter;
+  });
+
+  // Mobile Navigation Toggle
+  if (menuToggle && navigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      const nextState = !isOpen;
+
+      menuToggle.setAttribute("aria-expanded", String(nextState));
+      menuToggle.setAttribute("aria-label", nextState ? "Close navigation" : "Open navigation");
+      navigation.classList.toggle("is-open", nextState);
     });
-  });
-});
 
-document.querySelectorAll("[data-category-link]").forEach((link) => {
-  link.addEventListener("click", () => {
-    const category = link.dataset.categoryLink;
-    const matchingFilter = filterButtons.find((button) => button.dataset.filter === category);
-    if (matchingFilter) matchingFilter.click();
-  });
-});
+    // Close mobile nav when clicking a link
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        navigation.classList.remove("is-open");
+      });
+    });
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-  navigation.classList.toggle("is-open", isOpen);
-});
-
-navigation.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-    navigation.classList.remove("is-open");
-  });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && navigation.classList.contains("is-open")) {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-    navigation.classList.remove("is-open");
-    menuToggle.focus();
+    // Close on Escape key
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        navigation.classList.remove("is-open");
+        menuToggle.focus();
+      }
+    });
   }
 });

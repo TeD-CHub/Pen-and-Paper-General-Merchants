@@ -95,15 +95,15 @@ export function CategoryShowcase({
                       block: "start",
                     });
                 }}
-                className={`flex min-h-32 flex-col items-start justify-between rounded-lg border p-4 text-left transition-colors sm:min-h-36 sm:p-5 ${
+                className={`flex min-h-36 flex-col items-start justify-between rounded-2xl border p-4 text-left transition-colors sm:min-h-40 sm:p-5 ${
                   selected
-                    ? "border-primary bg-primary-light text-primary"
-                    : "border-neutral-200 bg-white text-neutral-900 hover:border-primary/50"
+                    ? "border-primary bg-primary text-white shadow-card"
+                    : "border-neutral-200 bg-white text-neutral-900 hover:border-primary/40 hover:bg-primary-light/50"
                 }`}
               >
                 <span
                   className={`grid size-11 place-items-center rounded-xl ${
-                    selected ? "bg-white text-primary" : "bg-secondary text-primary"
+                    selected ? "bg-white/15" : "bg-primary-light text-primary"
                   }`}
                 >
                   <Icon aria-hidden="true" size={23} />
@@ -112,7 +112,7 @@ export function CategoryShowcase({
                   <span className="block font-heading font-extrabold">
                     {category.name}
                   </span>
-                  <span className="text-sm text-neutral-600">
+                  <span className={`text-sm ${selected ? "text-white" : "text-neutral-500"}`}>
                     {count ? `${count} sample titles` : "More items coming"}
                   </span>
                 </span>
@@ -149,7 +149,7 @@ export function CategoryShowcase({
               type="button"
               aria-label="Scroll featured products left"
               onClick={() => scrollCarousel(-1)}
-              className="grid size-11 place-items-center rounded-lg border border-neutral-200 bg-white text-primary hover:bg-primary-light"
+              className="grid size-11 place-items-center rounded-full border border-neutral-200 bg-white text-primary hover:bg-primary-light"
             >
               <ArrowLeft aria-hidden="true" size={19} />
             </button>
@@ -157,7 +157,7 @@ export function CategoryShowcase({
               type="button"
               aria-label="Scroll featured products right"
               onClick={() => scrollCarousel(1)}
-              className="grid size-11 place-items-center rounded-lg border border-neutral-200 bg-white text-primary hover:bg-primary-light"
+              className="grid size-11 place-items-center rounded-full border border-neutral-200 bg-white text-primary hover:bg-primary-light"
             >
               <ArrowRight aria-hidden="true" size={19} />
             </button>
