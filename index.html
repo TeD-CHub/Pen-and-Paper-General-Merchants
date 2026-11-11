@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body id="top">
@@ -92,16 +93,17 @@
           </div>
 
           <div class="hero-art">
-            <div class="hero-card">
-              <div class="hero-photo">
+            <div class="hero-card hero-3d-card" id="hero-3d-wrapper">
+              <div id="three-canvas-container" class="three-canvas-container"></div>
+              <div class="hero-photo" id="hero-fallback-photo">
                 <img
                   src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=85"
                   alt="A neat stack of textbooks and curated stationery"
                 />
               </div>
               <div class="hero-card-tag">
-                <span class="tag-dot"></span>
-                <span>Ready for the school term</span>
+                <span class="tag-dot animate-dot"></span>
+                <span>Interactive 3D &bull; Move mouse to explore</span>
               </div>
             </div>
           </div>

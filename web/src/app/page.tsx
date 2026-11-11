@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown,
@@ -10,6 +9,7 @@ import {
   PencilRuler,
   Truck,
 } from "lucide-react";
+import { Hero3DWrapper } from "@/components/3d/hero-3d-wrapper";
 import { CategoryShowcase } from "@/components/home/category-showcase";
 import { SchoolListFinder } from "@/components/home/school-list-finder";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -129,29 +129,8 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-lg">
-              <div className="overflow-hidden rounded-3xl border border-purple-400/25 bg-white/10 p-3 shadow-2xl backdrop-blur-md">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-purple-950/40">
-                  <Image
-                    src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=85"
-                    alt="Neat stack of books and learning stationery"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 500px"
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-purple-950/80 px-4 py-2.5 backdrop-blur-md border border-white/15">
-                    <div>
-                      <p className="text-xs font-bold text-purple-200">Pen &amp; Paper Provisions</p>
-                      <p className="text-sm font-extrabold text-white">Tassia Complex, Nairobi</p>
-                    </div>
-                    <span className="rounded-full bg-primary px-3 py-1 text-xs font-extrabold text-white">
-                      In Stock
-                    </span>
-                  </div>
-                </div>
-              </div>
+            <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+              <Hero3DWrapper />
             </div>
           </div>
         </section>
