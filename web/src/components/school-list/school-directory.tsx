@@ -119,7 +119,7 @@ export function SchoolDirectory({ schools, schoolLists }: SchoolDirectoryProps) 
         </p>
       </section>
 
-      <aside className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-card sm:p-6">
+      <aside className="rounded-lg border border-neutral-200 bg-white p-5 sm:p-6">
         <h2 className="font-heading text-xl font-extrabold text-neutral-900">My school isn’t here</h2>
         <p className="mt-2 text-sm leading-6 text-neutral-700">
           Tell us which school and location to add. This sample form does not send or save requests.

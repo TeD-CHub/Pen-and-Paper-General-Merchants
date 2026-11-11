@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {
-  ArrowDown,
   ArrowRight,
   BadgeCheck,
   BookOpen,
@@ -75,24 +74,19 @@ export default async function Home() {
     <>
       <SiteHeader />
       <main>
-        <section className="relative isolate overflow-hidden bg-primary text-white">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-32 -top-40 size-[28rem] rounded-full border-[3rem] border-white/[0.06] sm:size-[38rem]"
-          />
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-20">
-            <div className="relative z-10">
-              <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-sm font-bold text-white">
-                <span className="size-2 rounded-full bg-white" aria-hidden="true" />
+        <section className="border-b border-neutral-200 bg-secondary">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-20">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wide text-primary">
                 For families, schools & more
               </p>
-              <h1 className="mt-5 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
                 A good school day starts with the right supplies.
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-7 text-white sm:text-xl">
+              <p className="mt-5 max-w-xl text-lg leading-7 text-neutral-700 sm:text-xl">
                 From books to the little classroom essentials, let’s get them ready for the term — bila stress.
               </p>
-              <p className="mt-3 text-sm text-white">
+              <p className="mt-3 text-sm text-neutral-600">
                 Pen and Paper · Tassia Complex, off Fedha Road, Nairobi
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -105,60 +99,37 @@ export default async function Home() {
                 </a>
                 <a
                   href="#sample-school-list"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/5 px-5 py-3 font-heading font-bold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-primary px-5 py-3 font-heading font-bold text-primary transition-colors hover:bg-primary-light"
                 >
                   Find Your School List
-                  <ArrowDown aria-hidden="true" size={18} />
                 </a>
               </div>
-              <p className="mt-3 text-sm text-white">
+              <p className="mt-3 text-sm text-neutral-600">
                 Sample online catalogue · Product availability and prices are for illustration
               </p>
             </div>
 
-            <div className="relative mx-auto w-full max-w-lg">
-              <div className="rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-raised backdrop-blur-sm sm:p-6">
-                <div className="rounded-[1.5rem] bg-secondary p-5 text-neutral-900 sm:p-7">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="grid size-12 place-items-center rounded-2xl bg-primary text-white">
-                      <BookOpen aria-hidden="true" size={25} />
-                    </span>
-                    <span className="rounded-full bg-lilac-100 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-lilac-900">
-                      School-ready
-                    </span>
-                  </div>
-                  <p className="mt-6 text-sm font-bold uppercase tracking-wide text-primary">
-                    One less thing to worry about
-                  </p>
-                  <p className="mt-2 font-heading text-2xl font-extrabold leading-tight sm:text-3xl">
-                    Books, lists & everyday essentials.
-                  </p>
-                  <div className="mt-6 space-y-3">
-                    {["Check a school list", "Find the right book", "Plan delivery"].map(
-                      (item, index) => (
-                        <div
-                          key={item}
-                          className="flex min-h-12 items-center gap-3 rounded-xl border border-neutral-200 bg-white px-3 py-2"
-                        >
-                          <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary-light text-sm font-extrabold text-primary">
-                            {index + 1}
-                          </span>
-                          <span className="font-semibold">{item}</span>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-2 hidden items-center gap-2 rounded-xl bg-lilac-100 px-4 py-3 font-heading text-sm font-extrabold text-lilac-900 shadow-raised sm:flex">
-                <PencilRuler aria-hidden="true" size={19} />
-                Ready for the school run
-              </div>
+            <div className="border-l-2 border-primary/20 pl-6 sm:pl-8">
+              <p className="text-sm font-bold uppercase tracking-wide text-primary">
+                The school run, simplified
+              </p>
+              <ul className="mt-5 space-y-5">
+                {["Check a school list", "Find the right book", "Plan delivery"].map(
+                  (item, index) => (
+                    <li key={item} className="flex items-center gap-4">
+                      <span className="font-heading text-sm font-extrabold tabular-nums text-primary">
+                        0{index + 1}
+                      </span>
+                      <span className="font-semibold text-neutral-900">{item}</span>
+                    </li>
+                  ),
+                )}
+              </ul>
             </div>
           </div>
         </section>
 
-        <div className="mx-auto max-w-7xl space-y-14 px-4 py-10 sm:space-y-16 sm:px-6 sm:py-14 lg:space-y-20 lg:px-8">
+        <div className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-14 sm:px-6 sm:py-12 lg:px-8">
           <ScrollReveal>
             <SchoolListFinder
               schools={schools}
@@ -195,13 +166,13 @@ export default async function Home() {
                   return (
                     <li
                       key={step.number}
-                      className="relative rounded-2xl border border-neutral-200 bg-white p-5 shadow-card sm:p-6"
+                      className="relative rounded-lg border border-neutral-200 bg-white p-5 sm:p-6"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-heading text-sm font-extrabold tracking-widest text-primary">
                           STEP {step.number}
                         </span>
-                        <span className="grid size-11 place-items-center rounded-xl bg-primary-light text-primary">
+                        <span className="grid size-11 place-items-center rounded-lg bg-primary-light text-primary">
                           <Icon aria-hidden="true" size={22} />
                         </span>
                       </div>
@@ -245,9 +216,9 @@ export default async function Home() {
                   return (
                     <article
                       key={reason.title}
-                      className="rounded-2xl bg-white p-5 shadow-card ring-1 ring-neutral-200 sm:p-6"
+                      className="rounded-lg border border-neutral-200 bg-white p-5 sm:p-6"
                     >
-                      <span className="grid size-12 place-items-center rounded-2xl bg-primary-light text-primary">
+                      <span className="grid size-11 place-items-center rounded-lg bg-primary-light text-primary">
                         <Icon aria-hidden="true" size={23} />
                       </span>
                       <h3 className="mt-4 font-heading text-lg font-extrabold text-neutral-900">
@@ -285,7 +256,7 @@ export default async function Home() {
                 {blogPosts.slice(0, 3).map((post) => (
                   <article
                     key={post.id}
-                    className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-card"
+                    className="overflow-hidden rounded-lg border border-neutral-200 bg-white"
                   >
                     <div className="relative aspect-[16/9] bg-neutral-50">
                       <Image
@@ -295,7 +266,7 @@ export default async function Home() {
                         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
                         className="object-cover"
                       />
-                      <span className="absolute left-3 top-3 rounded-full bg-lilac-100 px-3 py-1 text-xs font-extrabold text-lilac-900">
+                      <span className="absolute left-3 top-3 rounded bg-white px-2 py-1 text-xs font-bold text-neutral-700">
                         SAMPLE ARTICLE
                       </span>
                     </div>
@@ -320,12 +291,6 @@ export default async function Home() {
           </ScrollReveal>
         </div>
       </main>
-      <footer className="border-t border-primary-dark bg-primary-dark text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-7 text-sm text-white sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>Pen and Paper · Tassia Complex, off Fedha Road, Nairobi</p>
-          <p>Delivery options and charges may vary by destination and order.</p>
-        </div>
-      </footer>
     </>
   );
 }

@@ -9,24 +9,24 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <article className="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card">
+    <article className="overflow-hidden rounded-lg border border-neutral-200 bg-white">
       <Link
         href={`/product/${product.slug}`}
         aria-label={`View ${product.name}`}
-        className="relative block aspect-[4/3] bg-neutral-50 focus-visible:z-10"
+        className="relative block aspect-[4/3] bg-secondary focus-visible:z-10"
       >
         <Image
           src={product.image}
           alt={`Placeholder image for sample ${product.name}`}
           fill
           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-          className="object-cover"
+          className="object-contain p-5"
         />
         <span className="absolute left-3 top-3">
           <Badge tone="accent">SAMPLE</Badge>
         </span>
       </Link>
-      <div className="space-y-3 p-4">
+      <div className="space-y-2.5 p-4">
         <div className="flex flex-wrap gap-2">
           <Badge tone="primary">{product.curriculum}</Badge>
           <Badge>{product.grade}</Badge>
@@ -42,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className="text-sm text-neutral-500">
           Publisher: {product.publisher}
         </p>
-        <div className="flex items-end justify-between gap-3 border-t border-neutral-100 pt-3">
+        <div className="flex items-end justify-between gap-3 border-t border-neutral-200 pt-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               Sample price
