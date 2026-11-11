@@ -521,27 +521,6 @@ button {
   border-color: rgba(221, 214, 254, 0.6);
 }
 
-.hero-3d-badge {
-  position: absolute;
-  bottom: 24px;
-  right: 28px;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  background: rgba(30, 11, 54, 0.75);
-  border: 1px solid rgba(221, 214, 254, 0.3);
-  backdrop-filter: blur(12px);
-  border-radius: 9999px;
-  color: #ddd6fe;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-}
-
 .animate-dot {
   animation: pulse-dot 1.8s infinite ease-in-out;
 }

@@ -309,12 +309,6 @@ export function HeroScene3D() {
           color="#1B0A33"
         />
       </Canvas>
-
-      {/* Interactive Helper Overlay Badge */}
-      <div className="pointer-events-none absolute bottom-4 right-6 flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-950/70 px-4 py-2 text-xs font-bold text-purple-200 backdrop-blur-md shadow-lg">
-        <span className="size-2 animate-pulse rounded-full bg-purple-400" />
-        <span>Interactive 3D &bull; Hover to explore</span>
-      </div>
     </div>
   );
 }
