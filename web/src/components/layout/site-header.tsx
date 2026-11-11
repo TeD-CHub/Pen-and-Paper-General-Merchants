@@ -30,7 +30,7 @@ export function SiteHeader() {
             School lists
           </Link>
           <Link
-            href="#sample-cart"
+            href="/cart"
             className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent px-3 py-2 text-sm font-bold text-accent-contrast hover:bg-accent-hover sm:px-4 sm:text-base"
           >
             <ShoppingBag aria-hidden="true" size={18} />

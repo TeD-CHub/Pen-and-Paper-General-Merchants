@@ -216,7 +216,8 @@ export default async function Home() {
                 })}
               </ol>
               <p className="mt-4 text-center text-sm text-neutral-500">
-                Checkout and M-Pesa payment are not connected in this sample frontend.
+                Add items to your cart, then send your basket to us on WhatsApp. We’ll confirm
+                availability, delivery, and M-Pesa payment details with you.
               </p>
             </section>
           </ScrollReveal>

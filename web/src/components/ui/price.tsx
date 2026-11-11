@@ -12,8 +12,12 @@ const kesFormatter = new Intl.NumberFormat("en-KE", {
   maximumFractionDigits: 0,
 });
 
+export function formatKes(amount: number): string {
+  return kesFormatter.format(amount);
+}
+
 export function Price({ amount, originalAmount, className }: PriceProps) {
-  const formattedAmount = kesFormatter.format(amount);
+  const formattedAmount = formatKes(amount);
 
   return (
     <span className={className}>
@@ -21,7 +25,7 @@ export function Price({ amount, originalAmount, className }: PriceProps) {
       {originalAmount !== undefined ? (
         <span className="ml-2 text-sm text-neutral-500">
           <span className="sr-only">Original price </span>
-          <del>{kesFormatter.format(originalAmount)}</del>
+          <del>{formatKes(originalAmount)}</del>
         </span>
       ) : null}
     </span>

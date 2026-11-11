@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState, type MouseEvent } from "react";
+import { useMemo, useState } from "react";
 import { Check, Copy, MessageCircle, Printer, ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Price } from "@/components/ui/price";
 import { QuantityStepper } from "@/components/ui/quantity-stepper";
 import { Select } from "@/components/ui/select";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { useCartStore } from "@/store/cart-store";
 import type { Product, School, SchoolList } from "@/types";
 
@@ -153,13 +154,6 @@ function SchoolChecklist({
     window.print();
   }
 
-  function shareViaWhatsApp(event: MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault();
-    const message = `${listShareText()}\n\nOpen list: ${listUrl()}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-    setStatusMessage("Opening WhatsApp with your school list.");
-  }
-
   return (
     <div className="school-list-print">
       <div className="school-list-no-print grid gap-5 rounded-2xl border border-primary/15 bg-white p-5 shadow-card sm:grid-cols-[1fr_auto] sm:items-end sm:p-6">
@@ -187,8 +181,7 @@ function SchoolChecklist({
           <Copy aria-hidden="true" size={17} /> Copy list link
         </Button>
         <a
-          href={`https://wa.me/?text=${encodeURIComponent(listShareText())}`}
-          onClick={shareViaWhatsApp}
+          href={getWhatsAppUrl(`${listShareText()}\n\nOpen list: ${listUrl()}`)}
           target="_blank"
           rel="noreferrer"
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-success px-4 py-2 font-semibold text-success hover:bg-teal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2"

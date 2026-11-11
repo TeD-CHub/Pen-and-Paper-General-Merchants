@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WhatsAppFloatingButton } from "@/components/layout/whatsapp-floating-button";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,7 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className="min-h-screen antialiased font-body">{children}</body>
+      <body className="min-h-screen antialiased font-body">
+        {children}
+        <WhatsAppFloatingButton />
+      </body>
     </html>
   );
 }

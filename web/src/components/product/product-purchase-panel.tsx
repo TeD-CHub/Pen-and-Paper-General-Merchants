@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Price } from "@/components/ui/price";
 import { QuantityStepper } from "@/components/ui/quantity-stepper";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { useCartStore } from "@/store/cart-store";
 import type { Product } from "@/types";
 
@@ -20,10 +21,9 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
   const [notifyMessage, setNotifyMessage] = useState("");
   const addItem = useCartStore((state) => state.addItem);
   const inStock = product.stockStatus !== "out-of-stock";
-  const whatsappMessage = encodeURIComponent(
+  const whatsappHref = getWhatsAppUrl(
     `Hi Pen and Paper, I’m interested in ${product.name} (SKU: ${product.sku}). Please confirm availability and delivery options.`,
   );
-  const whatsappHref = `https://wa.me/?text=${whatsappMessage}`;
 
   function addToCart() {
     addItem(product.id, quantity);

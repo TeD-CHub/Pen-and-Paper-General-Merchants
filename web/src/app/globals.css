@@ -24,6 +24,8 @@
   --error-surface: #fff5f1;
   --focus-ring: #765392;
   --link: #5b2a86;
+  --whatsapp: #075e54;
+  --whatsapp-hover: #064c44;
   --font-heading: "Manrope";
   --font-body: "Source Sans 3";
 }
@@ -54,6 +56,14 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.whatsapp-float {
+  background-color: var(--whatsapp);
+}
+
+.whatsapp-float:hover {
+  background-color: var(--whatsapp-hover);
 }
 
 h1,
@@ -143,6 +153,7 @@ a:not([class]) {
   }
 
   .school-list-print button,
+  .whatsapp-float,
   .school-list-print input,
   .school-list-print select,
   .school-list-print img,
