@@ -99,12 +99,7 @@ export default async function Home() {
           {/* Hero Content Overlay (Passes mouse events to 3D canvas; buttons remain clickable) */}
           <div className="pointer-events-none relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
             <div className="max-w-2xl">
-              <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-500/20 px-3.5 py-1.5 text-xs font-bold tracking-wide text-purple-100 backdrop-blur-md shadow-sm">
-                <span className="size-2 rounded-full bg-purple-300" aria-hidden="true" />
-                School Supplies &amp; Books &bull; Nairobi, Kenya
-              </div>
-
-              <h1 className="mt-5 max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white drop-shadow-md">
+              <h1 className="max-w-2xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white drop-shadow-md">
                 Big ideas start with the <span className="text-purple-200">right supplies.</span>
               </h1>
 
